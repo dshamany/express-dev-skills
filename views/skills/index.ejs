@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>Welcome to My Dev Skills</h1>
+    <ul>
+        <% skills.forEach((e, idx) => { %>
+            <li>
+                <form action="/skills/<%= idx %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                    <a href="/skills/<%= idx %>"><%= e %></a>
+                </form>
+            </li>
+      <% }); %>
+    </ul>
+    <p><b>TOTAL:</b> <%= skills.length %></p>
+    <a href="/skills/new"><button>New</button></a>
+    
+</body>
+</html>
